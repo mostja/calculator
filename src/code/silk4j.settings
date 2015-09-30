@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<recorderProject version="11.0">
+  <applicationConfiguration>
+    <moduleNamePattern>*\calc.exe</moduleNamePattern>
+    <commandLinePattern></commandLinePattern>
+    <techDomain>Auto</techDomain>
+    <baseStateInfo>
+      <logicalName>Calculator</logicalName>
+      <executable>C:\Windows\system32\calc.exe</executable>
+      <commandLineArguments></commandLineArguments>
+      <workingDirectory>C:\Windows\system32</workingDirectory>
+      <className>Window</className>
+      <locator>/Window[@caption=&apos;Calculator&apos;]</locator>
+    </baseStateInfo>
+  </applicationConfiguration>
+  <actions/>
+  <agentOptions/>
+  <runBaseStateBeforeRecordAndReplay>true</runBaseStateBeforeRecordAndReplay>
+  <replaySpeed>Fast</replaySpeed>
+</recorderProject>

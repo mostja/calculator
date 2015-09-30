@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project basedir="." name="calctProject" default="run">
+	<property name="src.dir" value="src" />
+	<property name="reports.dir" value="test-output" />
+	<property name="build.dir" value="bin" />
+	<property name="lib.dir" value="lib" />
+
+	<taskdef resource="testngtasks" classpath="${lib.dir}/testng-6.8.jar"/>
+	<path id="master-classpath">
+		<fileset dir="${lib.dir}">
+			<include name="*.jar" />
+		</fileset>
+		<path path="${build.dir}" />
+	</path>
+	<target name="path">
+		<property name="myClasspath" refid="master-classpath" />
+		<echo message="Classpath = ${myClasspath}" />
+	</target>
+	<target name="clean" description="Removes build directory and test results.">
+		<delete dir="${build.dir}" />
+		<delete dir="${reports.dir}" />
+	</target>
+	<target name="compile"  description="Compile Java files.">
+		<mkdir dir="${build.dir}" />
+		<javac destdir="${build.dir}" debug="true" nowarn="on" deprecation="off" optimize="false" failonerror="true" includeantruntime="false">
+			<src path="${src.dir}" />
+			<classpath refid="master-classpath" />
+		</javac>
+	</target>
+	<target name="run" description="Run testNG tests." depends="compile">
+		<mkdir dir="${reports.dir}" />
+		<testng classpathref="master-classpath" outputdir="${reports.dir}">
+			<xmlfileset dir="${basedir}" includes="testng.xml" />
+		</testng>
+	</target>
+
+</project>

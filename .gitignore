@@ -3,3 +3,7 @@
 out/
 target/
 lib/
+test-output/
+.settings/
+local.properties
+.classpath
